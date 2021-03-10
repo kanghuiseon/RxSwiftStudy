@@ -253,6 +253,7 @@ observable
 ```
 * string 타입의 observable을 생성한다.
 * subscribe 연산자는 Disposable을 리턴하고 이것을 상수인 subscription에 저장한다.
+* 여기서 Disposable은 구독을 의미한다.
 * 또한 observable이 이벤트를 방출할때마다, handler에서는 각 이벤트를 출력하도록 한다.
 * 여기서, 명확하게 구독을 취소하고 싶다면, ***dispose()*** 를 호출한다. 호출 이후에는 observable은 더 이상 이벤트를 방출하지 않는다.
 ```swift
