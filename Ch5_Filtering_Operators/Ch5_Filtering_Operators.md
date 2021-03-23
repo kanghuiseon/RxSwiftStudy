@@ -319,7 +319,7 @@ print ->
 <br/>
 <br/>
 
-<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/9.png" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/9.png" height=260>
 
 * takeUntil은 skipUntil과 마찬가지로, trigger observable과 함께 작동할 수도 있다.
 * trigger observable이 onNext 이벤트를 방출하기 전까지 요소를 방출한다.
@@ -395,7 +395,7 @@ A
 <br/>
 
 ### distinctUntilChanged(_:)
-<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/11.png" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/11.png" height=260>
 
 * 만약 사진에서처럼 custom하게 조건을 제공하고 싶다면, 이 연산자를 사용한다.
 
