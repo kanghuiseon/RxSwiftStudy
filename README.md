@@ -17,7 +17,7 @@
 * **Section II: Operators and Best Practices**
   > | Ch# | Chapter Subject | Practice | Note |
   > |:---:| :--- | :---: | :--- |
-  > |5|[Filtering Operators](https://github.com/fimuxd/RxSwift/blob/master/Lectures/05_Filtering%20Operators/Ch5.%20FilteringOperators.md)| - |**필터링 연산자**<p> ignoreElements, elementAt, filter, skip, skipWhile, skipUntil, take, takeWhile, enumerated, takeUntil, distinctUntilChanged|
+  > |5|[Filtering Operators](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Ch5_Filtering_Operators.md)| - |**필터링 연산자**<p> ignoreElements, elementAt, filter, skip, skipWhile, skipUntil, take, takeWhile, enumerated, takeUntil, distinctUntilChanged|
   > |6|[Filtering Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/06_Filtering%20Operators%20in%20Practice/Ch.6%20Filtering%20Operators%20in%20Practice.md)| - |**실전 연습**<p>share, takeLast, throttle|
   > |7|[Transforming Operators](https://github.com/fimuxd/RxSwift/blob/master/Lectures/07_Transforming%20Operators/CH7_TransformingOperators.md)| - |**변환 연산자**<p> toArray, map, enumerated, flatMap, flapMapLatest, materialize, dematerialize, unwrap|
   > |8|[Transforming Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/08_Transforming%20Operators%20in%20Practice/Ch.8%20Transforming%20Operators%20in%20Practice.md)| - |**실전 연습**<p>GitHub API를 이용한 map/flatMap 집중 연습|
