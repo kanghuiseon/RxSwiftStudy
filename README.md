@@ -2,9 +2,9 @@
 
 ## Curriculum
 
-* 희선 - Chapter2
+* 희선 - Chapter2, Chapter5, Chapter9
 
-* 상윤 - Chapter3
+* 상윤 - Chapter3, Chapter7, Chapter11
 
 * **Section I: Getting Started with RxSwift**
   > | Ch# | Chapter Subject | Question | Note |
