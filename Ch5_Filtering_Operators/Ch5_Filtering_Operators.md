@@ -7,7 +7,7 @@
 
 ## Ignoring operators
 ### ignoreElements
-<img src="0" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/0.png" height=200>
 
 * 모든 next이벤트는 무시하고, completed 와 error 이벤트만 전달한다.
 
@@ -44,7 +44,7 @@ You're out!
 <br/>
 
 ### elementAt
-<img src = "1" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/1.png" height = 200>
 
 * 만약 특정 위치의 요소를 방출하고 싶다면 이 연산자를 사용한다.
 * 사진에서와 같이 elementAt의 파라미터로 전달하면 두번째 인덱스의 이벤트만 구독자에게 전달된다. (인덱스는 0부터 시작하니까!)
@@ -81,7 +81,7 @@ You're out!
 <br/>
 
 ### filter
-<img src = "2" height=200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/2.png" height=200>
 
 * 위의 사진에서처럼 filter연산자는 원하는 조건에 해당하는 이벤트만 방출한다.
 * 만약 조건이 true라면 구독자에게 전달하고, false라면 전달하지 않는다.
@@ -114,7 +114,7 @@ print ->
 <br/>
 
 ## Skipping operators
-<img src = "3" height=200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/3.png" height=200>
 
 * 만약 특정 수의 요소를 무시하고, 그 다음 요소부터 구독자에게 전달하고 싶다면, skip 연산자를 사용한다.
 * 사진에서는 파라미터로 2를 전달했으므로, 앞의 1, 2의 요소는 구독자에게 전달되지 않는다.
@@ -144,7 +144,7 @@ F
 <br/>
 
 ### skipWhile
-<img src = "4" height=200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/4.png" height=200>
 
 * skipWhile에서는 조건문이 true를 리턴하는 것은 skip한다. false를 리턴한 순간부터는 skip하지 않고 그대로 구독자에게 방출한다. 
 * 예를 들어, 그림에서는 홀수인 1은 true를 리턴한다. 하지만 2는 false를 리턴하기 때문에 이 이후부터는 홀수가 나와도 그대로 방출한다.
@@ -175,7 +175,7 @@ print ->
 <br/>
 
 ### skipUntil
-<img src="5" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/5.png" height=200>
 
 * 파라미터로 전달된 observable이 next 이벤트를 전달하기 전까지 원래의 observable이 전달하는 이벤트는 모두 무시한다.
 
@@ -216,7 +216,7 @@ C
 * taking은 skip과는 반대이다. 무시하는 것이 아니라, 원하는만큼만 이벤트를 방출한다.
 
 ### take
-<img src = "6" height=200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/6.png" height=200>
 
 * take 연산자는 파라미터로 전달된 정수만큼만 요소를 방출한다.
 * 사진에서 보는것과 같이 2개의 이벤트만 구독자에게 전달된다.
@@ -249,7 +249,7 @@ print ->
 
 
 ### takeWhile
-<img src="7" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/7.png" height=200>
 
 * skipWhile과는 반대로, true를 리턴하면 구독자에게 전달하고, false를 리턴한 순간부터는 더 이상 요소를 방출하지 않는다.
 
@@ -289,7 +289,7 @@ print ->
 <br/>
 
 ### takeUntil
-<img src="8" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/8.png" height=200>
 
 * takeUntil은 조건문의 식이 true를 return 할때까지 요소를 방출한다.
 * 또한 behavior argument를 설정하는데, .inclusive는 조건을 만족하는 마지막 요소를 포함시킨다는 의미이고, .exclude는 제외시킨다는 의미이다.
@@ -319,7 +319,7 @@ print ->
 <br/>
 <br/>
 
-<img src="9" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/9.png" height=200>
 
 * takeUntil은 skipUntil과 마찬가지로, trigger observable과 함께 작동할 수도 있다.
 * trigger observable이 onNext 이벤트를 방출하기 전까지 요소를 방출한다.
@@ -364,7 +364,7 @@ print ->
 <br/>
 
 ### distinctUntilChanged
-<img src = "10" height=200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/10.png" height=200>
 
 * 그림에서 처럼 2가 연속으로 나왔기 때문에 첫 2 이후의 2는 구독자에게 전달하지 않는다.
 
@@ -395,7 +395,7 @@ A
 <br/>
 
 ### distinctUntilChanged(_:)
-<img src="11" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Resource/11.png" height=200>
 
 * 만약 사진에서처럼 custom하게 조건을 제공하고 싶다면, 이 연산자를 사용한다.
 
