@@ -2,7 +2,7 @@
 
 ## Prefixing and concatenating
 ### startWith
-<img src = "0" height = 150>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/0.png" height = 200>
 
 * 만약 현재 state에서 항상 어떤 이벤트를 방출하는 것으로 이벤트를 시작하고 싶다면, 접두사를 붙여준다.
 * 그림에서와 같이, 옵저버블이 요소를 방출하기 전에 1이라는 요소를 가진 next 이벤트를 앞부분에 추가하여 먼저 방출한 후, 다음 이벤트들을 방출한다.
@@ -57,7 +57,7 @@ completed
 <br/>
 
 ### Observable.concat
-<img src = "1" height = 150>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/1.png" height = 200>
 
 * concat메소드는 그림과 같이 두 개의 observable을 연결할 때 사용한다.
 ```swift
@@ -158,7 +158,7 @@ Valencia
 ## Merging
 * RxSwift는 sequences를 combine하는 여러가지 방법을 제공한다.
 ### merge
-<img src = "1" height = 150>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/2.png" height = 250>
 
 * 그림과 같이 여러 Observable 항목들이 방출하는 항목들을 하나의 Observable에서 방출하도록 병합한다.
 ```swift
@@ -250,7 +250,7 @@ next(red)
 
 ## Combining elements
 ### combineLatest
-<img src = "3" height = 150>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/3.png" height = 200>
 
 * 사진에서 보면, left 에서 1을 방출했지만 아무것도 방출되지 않았다. 하지만 right에서 4를 방출하자마자 1과4가 결합된 형태의 이벤트가 방출되었다. 
 * 또한 이후에 right에서 5를 방출하자 left에서 가장 최근에 방출된 요소인 1과 결합하여, 이벤트가 방출된다.
@@ -365,7 +365,7 @@ Hello, Hee
 <br/>
 
 ### zip
-<img src = "4" height = 150>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/4.png" height = 200>
 
 * zip연산자는 인덱스를 맞춘다고 생각하면 된다. 그림에서와 같이 left의 첫번째 인덱스인 sunny는 right이 이벤트를 방출할때까지 기다렸다가 Lisbon과 함께 결합되어서 방출된다.
 * 또한 left의 두번째 인덱스인 cloudy는 right의 두번째 인덱스인 London과 함께 결합되어서 나온다.
@@ -406,7 +406,7 @@ It's sunny in Madrid
 <br/>
 
 ### withLatestFrom
-<img src="5" height=150>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/5.png" height=200>
 
 *  그림에서처럼 textfield에서 텍스트를 검색하고, 버튼을 탭하면, textfield의 가장 최근 데이터를 가져오도록할 때 이 연산자를 사용한다.
 
@@ -447,7 +447,7 @@ Paris
 <br/>
 
 ### sample
-<img src="6" height=150>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/6.png" height=200>
 
 * sample 연산자는 withLatestFrom연산자와 비슷하지만, 다른 점이 있다. 사진에서 처럼, tap을 여러번 해도 Paris가 한번만 출력된다.
 * 이와 같이, trigger에서 onNext 이벤트를 방출할때마다 data에서는 최신 observable을 **한번만** 방출한다.
@@ -464,7 +464,7 @@ let observable = textField.sample(button)’
 RxSwift에서는 "switching" 연산자인 amb(_:)와 switchLatest()연산자를 제공한다.
 ### amb
 * 2개 이상의 observables중에서 가장 먼저 next 이벤트를 전달하는 Observable을 구독하고, 나머지는 모두 무시한다.
-<img src="7" height=150>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/7.png" height=200>
 
 * 사진에서와 같이, right이 가장 먼저 next 이벤트를 방출했기 때문에 left observable에서 방출되는 이벤트들은 모두 무시된다.
 ```swift
@@ -501,7 +501,7 @@ Madrid
 <br/>
 
 ### switchLatest
-<img src="8" height=150>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/8.png" height=200>
 
 * switchLatest는 가장 최근에 구독한 옵저버블이 방출한 이벤트를 구독자에게 전달한다.
 
@@ -556,7 +556,7 @@ Nope. It's me, one!
 
 ## Combining elements within a sequence
 ## reduce
-<img src = "9" height=150>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/9.png" height=200>
 
 * 기존의 Swift 문법인 reduce와 비슷하다.
 * 사진에서처럼 sequence의 요소들의 누적합을 방출한다.
@@ -584,7 +584,7 @@ example(of: "reduce") {
 <br/>
 
 ### scan
-<img src = "10" height=150>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Resource/10.png" height=200>
 
 * scan 연산자는 reduce와 유사하지만 다른 점이 있다. 
 * reduce연산자는 최종적으로 누적된 값을 출력하지만 scan 연산자는 값을 누적시킬때마다를 출력한다.
