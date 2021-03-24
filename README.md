@@ -46,7 +46,7 @@
 * **Section VI: Putting it All Together**
   > | Ch# | Chapter Subject | Responsibility | Note |
   > |:---:| :--- | :---: | :--- |
-  > |23|[MVVM with RxSwift](https://github.com/fimuxd/RxSwift/blob/master/Lectures/23_MVVM%20with%20RxSwift/Ch.23%20MVVM%20with%20RxSwift.md)|[Simple Practice](https://github.com/fimuxd/RxSwift/tree/master/Practices/RxSwiftPractice)|**MVVM 아키텍처**|
+  > |23|[MVVM with RxSwift](https://github.com/fimuxd/RxSwift/blob/master/Lectures/23_MVVM%20with%20RxSwift/Ch.23%20MVVM%20with%20RxSwift.md)| - |**MVVM 아키텍처**|
   > |24|Building a Complete RxSwfit App| - |추후 별도 스터디|
 
 
