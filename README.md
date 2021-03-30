@@ -7,7 +7,7 @@
   > |1|[Hello RxSwift!](https://github.com/fimuxd/RxSwift/blob/master/Lectures/01_HelloRxSwift/Ch.1%20Hello%20RxSwift.md) | 희선, 상윤 | RxSwift 개요|
   > |2|[Observables](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch2_Observables/Ch2_Observables.md) | 희선 | **RxSwift의 심장**<p> just, of, from, subscribe, empty, never, range, dispose, create, deferred, do, debug |
   > |3|[Subjects](https://github.com/fimuxd/RxSwift/blob/master/Lectures/03_Subjects/Ch3.%20Subjects.md) | 상윤 | **Observable이자 Observer 인 녀석**<p> PublishSubject, BehaviorSubject, RelaySubject, Variable|
-  > |4|[Observables and Subjects in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/04_ObservablesAndSubjectsInPractice/Ch4.ObservablesAndSubjectsInPractice.md)| 희선 | **실전 연습**<p>single, maybe, completable |
+  > |4|[Observables and Subjects in Practice](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Ch4_Observables_and_Subjects_in_Practice.md)| 희선 | **실전 연습**<p>single, maybe, completable |
 
 * **Section II: Operators and Best Practices**
   > | Ch# | Chapter Subject | Responsibility | Note |
