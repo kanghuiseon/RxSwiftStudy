@@ -7,13 +7,13 @@
   > |1|[Hello RxSwift!](https://github.com/fimuxd/RxSwift/blob/master/Lectures/01_HelloRxSwift/Ch.1%20Hello%20RxSwift.md) | 희선, 상윤 | RxSwift 개요|
   > |2|[Observables](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch2_Observables/Ch2_Observables.md) | 희선 | **RxSwift의 심장**<p> just, of, from, subscribe, empty, never, range, dispose, create, deferred, do, debug |
   > |3|[Subjects](https://github.com/fimuxd/RxSwift/blob/master/Lectures/03_Subjects/Ch3.%20Subjects.md) | 상윤 | **Observable이자 Observer 인 녀석**<p> PublishSubject, BehaviorSubject, RelaySubject, Variable|
-  > |4|[Observables and Subjects in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/04_ObservablesAndSubjectsInPractice/Ch4.ObservablesAndSubjectsInPractice.md)| - | **실전 연습**<p>single, maybe, completable |
+  > |4|[Observables and Subjects in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/04_ObservablesAndSubjectsInPractice/Ch4.ObservablesAndSubjectsInPractice.md)| 희선 | **실전 연습**<p>single, maybe, completable |
 
 * **Section II: Operators and Best Practices**
   > | Ch# | Chapter Subject | Responsibility | Note |
   > |:---:| :--- | :---: | :--- |
   > |5|[Filtering Operators](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Ch5_Filtering_Operators.md)| 희선 |**필터링 연산자**<p> ignoreElements, elementAt, filter, skip, skipWhile, skipUntil, take, takeWhile, enumerated, takeUntil, distinctUntilChanged|
-  > |6|[Filtering Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/06_Filtering%20Operators%20in%20Practice/Ch.6%20Filtering%20Operators%20in%20Practice.md)| - |**실전 연습**<p>share, takeLast, throttle|
+  > |6|[Filtering Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/06_Filtering%20Operators%20in%20Practice/Ch.6%20Filtering%20Operators%20in%20Practice.md)| 상 |**실전 연습**<p>share, takeLast, throttle|
   > |7|[Transforming Operators](https://github.com/fimuxd/RxSwift/blob/master/Lectures/07_Transforming%20Operators/CH7_TransformingOperators.md)| 상윤 |**변환 연산자**<p> toArray, map, enumerated, flatMap, flapMapLatest, materialize, dematerialize, unwrap|
   > |8|[Transforming Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/08_Transforming%20Operators%20in%20Practice/Ch.8%20Transforming%20Operators%20in%20Practice.md)| - |**실전 연습**<p>GitHub API를 이용한 map/flatMap 집중 연습|
   > |9|[Combining Operators](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Ch9_CombiningOperators.md)| 희선 |**결합 연산자**<p> startWith, concat, concatMap, merge, merge(maxConcurrent), combineLatest, zip, withLatestFrom, sample, amb, switchLatest, reduce, scan, |
