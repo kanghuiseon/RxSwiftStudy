@@ -9,7 +9,7 @@ private let images = BehaviorRelay<[UIImage]>(value: [])
 * 다른 class에서 사용하지 않기 때문에 두 변수 모두 private으로 선언한다. (Encapsulation, 캡슐화)
 * relay이 같은 경우에는 next 이벤트만을 보내기 때문에 보통 ui와 관련해서 사용을 많이 한다.
 
-<img src = "1" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/1.png" height = 250>
 
 * 그림에서 보는 것과 같이, dispose bag은 view controller에서 관리한다. 
 * view controller가 release되자마자, 모든 observable의 구독들이 취소된다.
@@ -100,7 +100,7 @@ navigationController!.pushViewController(photosViewController, animated: true)
 ```
 * 우선 navigation stack에 PhotosViewController을 push하기 위해 MainViewController.swift에서 actionAdd()에 위의 코드를 추가한다. (기존의 코드는 주석처리하거나 제거한다.)
 * 앱을 실행하면 다음과 같이 + 버튼을 탭하면 카메라 앨범이 뜨는 것을 볼 수 있다.
-<img src = "2" height=200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/2.png" height=250>
 
 
 * 만약 기존의 방식대로 다음 코드를 진행했다면, main view와 photos view가 서로 통신할 수 있도록 delegate protocol을 추가했을 것이다. 하지만 이것은 Rx 다운 방식이 아니다.!
@@ -156,7 +156,7 @@ photosViewController.selectedPhotos
 guard let images = self?.images else { return }
 images.accept(images.value + [newImage])
 ```
-<img src = "3" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/3.png" height = 250>
 * 앱을 실행시키면, 카메라 앨범에서 사진을 선택하면, 메인화면에 이미지가 추가된것을 볼 수 있다.
 
 <br/>
@@ -232,7 +232,7 @@ static func save(_ image: UIImage) -> Observable<String> {
 * Single은 .success(Value) 이벤트와 .error이벤트만을 방출할 수 있는 특별한 연산자이다.
 * 여기서 .success란, .next + .completed를 의미한다.
 
-<img src = "4" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/4.png" height = 200>
 
 * 이러한 특징은, 파일을 저장하거나, 다운로드, 또는 디스크에서 데이터를 가져오거나 값을 만들어내는 비동기적인 것에서 유용하게 사용될 수 있다.
 1. PhotoWriter.save(_) 처럼 하나의 요소만을 방출하는 연산을 할 때, single을 사용할 수 있다.
@@ -245,7 +245,7 @@ static func save(_ image: UIImage) -> Observable<String> {
 ### Maybe
 * Maybe는 Single과 좀 비슷하지만 한가지 다른 점은 성공을 하더라도 어떤 값도 방출하지 않을 수 있다는 것이다.
 
-<img src = "5" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/5.png" height = 200>
 
 * 만약 사진과 관련된 예시를 생각한다면, 앱은 custome한 사진 앨범에 사진들을 저장하고 있을 것이다. 
 * UserDefaults에 앨범의 identifier을 저장하고, 앨범을 열고, 사진을 저장할때마다 해당 id를 사용할 것이다.
@@ -261,7 +261,7 @@ static func save(_ image: UIImage) -> Observable<String> {
 
 ## Completable
 * completable은 .completed 나 .error 이벤트만을 방출한다.
-<img src = "6" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/6.png" height = 200>
 
 * ignoreElements() 연산자를 이용하면, observable sequence를 completable로 바꿀 수 있다.
 * 이렇게 되면 모든 next이벤트는 무시되고 completed 나 error 이벤트만 방출한다. 
