@@ -9,7 +9,7 @@ private let images = BehaviorRelay<[UIImage]>(value: [])
 * 다른 class에서 사용하지 않기 때문에 두 변수 모두 private으로 선언한다. (Encapsulation, 캡슐화)
 * relay이 같은 경우에는 next 이벤트만을 보내기 때문에 보통 ui와 관련해서 사용을 많이 한다.
 
-<img src = "1" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/1.png" height = 250>
 
 * 그림에서 보는 것과 같이, dispose bag은 view controller에서 관리한다. 
 * view controller가 release되자마자, 모든 observable의 구독들이 취소된다.
@@ -100,7 +100,7 @@ navigationController!.pushViewController(photosViewController, animated: true)
 ```
 * 우선 navigation stack에 PhotosViewController을 push하기 위해 MainViewController.swift에서 actionAdd()에 위의 코드를 추가한다. (기존의 코드는 주석처리하거나 제거한다.)
 * 앱을 실행하면 다음과 같이 + 버튼을 탭하면 카메라 앨범이 뜨는 것을 볼 수 있다.
-<img src = "2" height=200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/2.png" height=250>
 
 
 * 만약 기존의 방식대로 다음 코드를 진행했다면, main view와 photos view가 서로 통신할 수 있도록 delegate protocol을 추가했을 것이다. 하지만 이것은 Rx 다운 방식이 아니다.!
@@ -156,7 +156,7 @@ photosViewController.selectedPhotos
 guard let images = self?.images else { return }
 images.accept(images.value + [newImage])
 ```
-<img src = "3" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/3.png" height = 250>
 * 앱을 실행시키면, 카메라 앨범에서 사진을 선택하면, 메인화면에 이미지가 추가된것을 볼 수 있다.
 
 <br/>
@@ -228,4 +228,142 @@ static func save(_ image: UIImage) -> Observable<String> {
 <br/>
 
 ## RxSwift traits in practice
+### Single
+* Single은 .success(Value) 이벤트와 .error이벤트만을 방출할 수 있는 특별한 연산자이다.
+* 여기서 .success란, .next + .completed를 의미한다.
 
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/4.png" height = 200>
+
+* 이러한 특징은, 파일을 저장하거나, 다운로드, 또는 디스크에서 데이터를 가져오거나 값을 만들어내는 비동기적인 것에서 유용하게 사용될 수 있다.
+1. PhotoWriter.save(_) 처럼 하나의 요소만을 방출하는 연산을 할 때, single을 사용할 수 있다.
+2. single을 이용해서 둘 이상의 요소가 들어오는지를 확인할 수 있다. 만약 둘 이상 들어오면, error를 방출한다.
+(observabledp .asSingle()을 추가하면, Single로 변환할 수 있다.)
+
+<br/>
+<br/>
+
+### Maybe
+* Maybe는 Single과 좀 비슷하지만 한가지 다른 점은 성공을 하더라도 어떤 값도 방출하지 않을 수 있다는 것이다.
+
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/5.png" height = 200>
+
+* 만약 사진과 관련된 예시를 생각한다면, 앱은 custome한 사진 앨범에 사진들을 저장하고 있을 것이다. 
+* UserDefaults에 앨범의 identifier을 저장하고, 앨범을 열고, 사진을 저장할때마다 해당 id를 사용할 것이다.
+* open(albumId: )-> Maybe<String> 연산자를 만들어서 다음의 상황을 다룰 수 있다.
+1. 주어진 id가 존재하는 경우에는 .completed 이벤트를 방출한다.
+2. 사용자가 앨범을 지운다면, 새로운 앨범을 만들고 새로운 id를 가진 .next 이벤트를 방출하여, UserDefaults를 계속해서 유지할 수 있다.
+3. 뭔가 에러가 났을 때는 photos library에 접근할 수 없기 때문에 .error 이벤트를 방출한다.
+
+* Single처럼, Maybe.create({...}) 나, observable에 .asMaybe()를 붙여 사용할 수 있다.
+
+<br/>
+<br/>
+
+## Completable
+* completable은 .completed 나 .error 이벤트만을 방출한다.
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch4_Observables_and_Subjects_in_Practice/Resource/6.png" height = 200>
+
+* ignoreElements() 연산자를 이용하면, observable sequence를 completable로 바꿀 수 있다.
+* 이렇게 되면 모든 next이벤트는 무시되고 completed 나 error 이벤트만 방출한다. 
+
+<br/>
+
+* 또한 Completable.create { ... }를 이용해서, completable sequence를 만들 수 있다. 
+* completable sequence는 비동기식 연산이 성공했는지 안했는지를 알고 싶을 때 많이 사용이 된다.
+
+<br/>
+
+* 앞에서 했던 Combinestagram을 보자. 사용자가 작업을 하는 동안에 자동 저장되는 기능을 추가하고 싶다.
+* 백그라운드 큐에서 문서가 비동기식으로 저장되는것을 추가하고 싶다. 완료가 되면 notification을 띄우고, 실패하면 alert를 화면에 나타내는 방식으로 코드를 추가한다.
+```swift
+saveDocument()
+    .andThen(Observable.from([createMessage))
+    .subscribe(onNext: { message in 
+        message.display()
+    }, onError: { e in
+        alert(e.localizedDescription)
+    })
+```
+* andThen 연산자는 더 많은 completable연산자나 observables를 연결하고, 마지막 결과를 구독할 수 있게 한다.
+<br/>
+<br/>
+
+### Subscribing to your custom observable
+* PhotoWriter.save(_) observable은 단 하나의 요소만을 방출하기 때문에 single로 사용하기 좋다. 
+* MainViewController.swfit의 actionSave()에 다음의 코드를 추가한다.
+```swift
+guard let image = imagePreview.image else { return }
+
+PhotoWriter.save(image)
+    .asSingle()
+    .subscribe(
+        onSuccess: { [weak self] id in
+            self?.showMessage("Saved with id: \(id)")
+            self?.actionClear()
+        },
+        onError: { [weak self] error in
+            self?.showMessage("Error", description: error.localizedDescription)
+            }
+    ).disposed(by: bag)
+}
+```
+* 현재 콜라쥬를 저장하기 위해 위의 함수를 호출한다. Observable을 single로 변환하고, 메세지가 성공인지 에러인지를 뜨게 하고, 성공을 했다면 clear()를 하도록 한다.
+<br/>
+<br/>
+
+## Challenges
+### Challenge 1: It's only logical to use a Single
+* 이미 PhotoWriter.save는 하나의 요소만을 방출하기 때문에 이것의 Return type을 single로 바꿀 수도 있다.
+* 리턴타입을 Single<String>으로 바꾸고, Observable.create를 Single.create로 바꿔준다.
+* 여기서, 기존의 Observable.create는 파라미터로 observer를 받아서, 여러개의 값을 방출할 수도 있고, 이벤트를 멈출 수도 있다. 
+* 하지만, Single.create는 파라미터로 클로저를 받기 때문에, .success(T), .error(E) 둘 중 하나를 방출할 수 있도록 한다.
+```swift
+static func save(_ image: UIImage) -> Single<String> {
+  return Single.create { observer in
+    var savedAssetId: String?
+    PHPhotoLibrary.shared().performChanges({
+      let request = PHAssetChangeRequest.creationRequestForAsset(from: image)
+      savedAssetId = request.placeholderForCreatedAsset?.localIdentifier
+    }, completionHandler: { success, error in
+      DispatchQueue.main.async {
+        if success, let id = savedAssetId {
+          observer(.success(id))
+        } else {
+          observer(.error(error ?? Errors.couldNotSavePhoto))
+        }
+      }
+    })
+    return Disposables.create()
+  }
+}
+```
+<br/>
+<br/>
+
+### Challenge 2 : Add custom observable to present alerts
+* MainViewController.swift를 열고, showMessage(_:description:) 메소드를 보자.
+* 이 메소드는 화면에 alert를 띄우고, 사용자가 alert를 끄려고 Close버튼을 탭할때의 Callback을 제공한다.
+* 이 challenge를 완성하기 위해서, 다음과 같이 해보자
+1. UIViewController의 extension을 추가하고, 주어진 타이틀과 메세지를 화면에 보여주고 Completable을 리턴하도록 하자.
+2. 사용자가 alert를 닫도록하기 위해 Close 버튼을 추가한다.
+3. 구독이 취소되었을때도 alert controller를 종료시킨다.
+```swift
+import UIKit
+import RxSwift
+
+extension UIViewController {
+    func alert(title: String, text: String?) -> Completable {
+        return Completable.create(subscribe: { [weak self] completable in
+            let alertVC = UIAlertController(title: title, message: text, preferredStyle: .alert)
+            let close = UIAlertAction(title: "Close", style: .default, handler: { _ in
+                completable(.completed)
+            })
+            alertVC.addAction(close)
+            self?.present(alertVC, animated: true, completion: nil)
+            return Disposables.create {
+                self?.dismiss(animated: true, completion: nil)
+            }
+        })
+    }
+}
+```
