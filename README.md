@@ -13,9 +13,9 @@
   > | Ch# | Chapter Subject | Responsibility | Note |
   > |:---:| :--- | :---: | :--- |
   > |5|[Filtering Operators](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch5_Filtering_Operators/Ch5_Filtering_Operators.md)| 희선 |**필터링 연산자**<p> ignoreElements, elementAt, filter, skip, skipWhile, skipUntil, take, takeWhile, enumerated, takeUntil, distinctUntilChanged|
-  > |6|[Filtering Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/06_Filtering%20Operators%20in%20Practice/Ch.6%20Filtering%20Operators%20in%20Practice.md)| 상윤 |**실전 연습**<p>share, takeLast, throttle|
+  > |6|[Filtering Operators in Practice](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch6_Filtering_Operators_in_Practice/Ch6_Filtering_Operators_in_Practice.md)| 상윤 |**실전 연습**<p>share, takeLast, throttle|
   > |7|[Transforming Operators](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch7_Transforming_Operators/Ch7_Transforming_Operators.md)| 상윤 |**변환 연산자**<p> toArray, map, enumerated, flatMap, flapMapLatest, materialize, dematerialize, unwrap|
-  > |8|[Transforming Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/08_Transforming%20Operators%20in%20Practice/Ch.8%20Transforming%20Operators%20in%20Practice.md)| - |**실전 연습**<p>GitHub API를 이용한 map/flatMap 집중 연습|
+  > |8|[Transforming Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/08_Transforming%20Operators%20in%20Practice/Ch.8%20Transforming%20Operators%20in%20Practice.md)| 희선 |**실전 연습**<p>GitHub API를 이용한 map/flatMap 집중 연습|
   > |9|[Combining Operators](https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch9_Combining_Operators/Ch9_CombiningOperators.md)| 희선 |**결합 연산자**<p> startWith, concat, concatMap, merge, merge(maxConcurrent), combineLatest, zip, withLatestFrom, sample, amb, switchLatest, reduce, scan, |
   > |10|[Combining Operators in Practice](https://github.com/fimuxd/RxSwift/blob/master/Lectures/10_Combining%20Operators%20in%20Practice/Ch.10%20Combining%20Operators%20in%20Practice.md)| - |**실전 연습**<p>NASA EONET API를 이용한 concat/combineLatest/scan 연습|
   > |11|[Time Based Operators](https://github.com/fimuxd/RxSwift/blob/master/Lectures/11_Time%20Based%20Operators/Time%20Based%20Operators.md)| 상윤 |**시간 기반 연산자**<p> replay, replayAll, buffer, window, delaySubscription, interval, timer, timeout|
@@ -51,4 +51,4 @@
 
 
 
-
+[공부 출처 : raywenderlich.com RxSwift](https://www.raywenderlich.com/books/rxswift-reactive-programming-with-swift/v4.0)
