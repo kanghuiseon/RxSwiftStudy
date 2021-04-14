@@ -3,7 +3,7 @@
 * RxSwift repository의 가장 최근 활동이 무엇인지 궁금하다! 이번 챕터에서는 최근 활동이 무엇인지 알려주는 프로젝트를 생성할 것이다.
 * Github repository의 활동(가장 최신 좋아요, forks, comments)을 보여줄 것이다.
 * 프로젝트를 열고 실행하면, Github의 JSON API에서 페치된 가장 최신 활동을 보여줄 table view controller가 보여진다.
-<img src= "1" height=200>
+<img src= "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/1.png" height=200>
 
 * 이 프로젝트는 다음의 두가지를 진행할 것이다.
 1. Github의 JSON API에 접근하여, JSON응답을 받고, 그 응답을 collection으로 바꾼다.
@@ -15,7 +15,7 @@
 ## Fetching data from the web
 * 웹에서 데이터를 가져올때는, URLRequest의 파라미터로 웹 URL을 설정하고, 인터넷으로 보낸다. 그 후, 서버의 응답을 받게 된다.
 * GitFeed의 podfile을 잠깐 보자면, RxSwift와 함께 RxCocoa가 있다. RxCocoa는 RxSwift를 기반으로 한 라이브러리이고, 개발에 유용한 API를 구현한다. (Chapter 12, 13에서 자세히 배울 것이다.)
-<img src= "2" height=200>
+<img src= "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/2.png" height=200>
 
 * RxCocoa URLSession extension을 사용해서 GitHub API로부터 JSON을 빠르게 fetch할 것이다.
 <br/>
@@ -42,7 +42,7 @@ let response = Observable.from([repo])
 }
 ```
 * 마지막으로, 생성한 url을 이용해서 URLRequest 형태로 바꾼다.
-<img src= "3" height=200>
+<img src= "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/3.png" height=100>
 
 * 이때까지의 과정을 이미지로 나타내면 위와 같다.
 <br/>
@@ -50,14 +50,14 @@ let response = Observable.from([repo])
 
 ### Using flatMap to wait for a web response
 * flatMap은 보통 transformation chain에 비동기성을 추가하는 것이다. 쉽게 설명하자면, 위의 예시에서, 아래의 사진과 같이 연속적으로  transformation을 진행하면, 이것은 동기적으로 발생한다고 한다.
-<img src= "4" height=200>
+<img src= "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/4.png" height=130>
 
 * 즉, 모든 변형 연산은 서로의 output을 가지고 진행한다.
 * 여기에 flatMap연산을 추가하면, 아래의 효과들을 볼 수 있다.
 1. 요소들과 complete을 즉시 방출하는 observables를 하나의 observable로 합칠 수 있다.
 2. 비동기적으로 일을 하는 observables를 하나로 합칠 수 있다. 비동기 작업을 수행하고, 완료될때까지 ***기다리고*** , 나머지 작업들은 계속해서 작동하도록 할 수 있다. 
 
-<img src = "5" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/5.png" height = 200>
 
 * 이러한 과정들을 GitFeed에 적용하면 위의 모습과 같다. 
 * 웹에 요청을 보내고, 응답이 올때까지 기다린다. 하지만 비동기적으로 작업을 수행하기 때문에 다른 작업에 대해서는 계속해서 진행될 수 있도록 한다.
@@ -132,7 +132,7 @@ struct Event: Codable {
     * response object는 버리고, response data만 얻는다.
     * JSONDecoder를 생성하고, response data를 Events 배열로 디코딩한다.
     * try? 를 사용하여, JSON data를 디코딩하는 동안에 decoder가 오류를 발생시키면 nil값을 반환한다.
-<img src = "6" height= 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/6.png" height= 200>
     
 * transforming 마지막 단계에서는 UI를 업데이트한다. response 마지막에 아래의 코드를 추가하자
 ```swift
@@ -171,10 +171,10 @@ tableView.reloadData()
 <br/>
 
 * 모두 실행하면 아래의 결과를 얻을 수 있다.
-<img src = "7" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/7.png" height = 500>
 
 * 하지만, 실행하고나서 다음의 crash를 볼 수 있다.
-<img src = "8" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/8.png" height = 50>
 
 * UI 관련된 부분은 무조건 main thread에서 실행이 되어야 하므로, 아래의 코드로 감싸주자.
 ```swift
@@ -182,7 +182,7 @@ DispatchQueue.main.async{
     self.tableView.reloadData()
 }
 ```
-<img src = "9" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/9.png" height = 250>
 
 * 추가로 테이블뷰를 refresh하면 절대 사라지지 않는 오류가 발생하는데, 페치가 끝나고나서 이 부분을 없애려면, 아래의 코드를 self.tableView.reloadData() 바로 밑에 추가해준다.
 ```swift
@@ -196,7 +196,7 @@ self.refreshControl?.endRefreshing()
 
 ## Persisting objects to disk
 * 지금부터는 가장 최근에 페치된 에빈트들을 디스크에 저장시켜놨다가 사용자가 앱을 열면 즉시 볼 수 있도록 할 것이다.
-<img src = "10" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/10.png" height = 250>
 
 * 저장할 이벤트의 양이 적기 때문에, 이 이벤트들을 .plist 파일에 저장할 것이다.
 * 첫번째로, ActivityController class에 새로운 프로퍼티를 생성한다.
@@ -255,7 +255,7 @@ private var modifiedFileURL: URL {
 * Mon, 30 May 2017 04:30:00 GMT. 와 같은 한줄 string 은 .plist file이 필요가 없다.
 * 이것은 Last-Modified 이름의 헤더 값으로 서버가 JSON 응답과 같이 보낸다.
 * 서버에 다음 요청을 보낼때, 저 헤더를 그대로 서버에게 보내서, 마지막으로 가져온 이벤트와 그 이후에 새롭게 페치한 이벤트가 있는지를 서버가 확인한다.
-<img src = "11" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/11.png" height = 200>
 
 * Last-Modified 헤더를 추적하기 위한 subject를 ActivityController에 추가한다.
 ```swift
@@ -298,7 +298,7 @@ response
 }
 ```
 * guard 를 이용해서, response가 HTTP 헤더를 포함하는지(Last-Modified이름의) 체크하고, 그 값을 String으로 타입 캐스팅한다.
-<img src = "12" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/12.png" height = 250>
 
 <br/>
 <br/>
@@ -332,12 +332,12 @@ response
 * URLRequest를 보내기 전에, lastModified에 값이 있으면, JSON을 가져온 후에 그 값을 Last-Modified 헤더를 request에 추가한다.
 * 이 헤더는 GitHub에게 이 헤더 date보다 오래된거에는 관심이 없다고 말해주는거라고 생각하면 된다.
 * 이 작업은 네트워크 트래픽을 줄여줄 뿐만 아니라, 데이터를 보내주지 않는 response에 대해서, GitHub API의 사용 제한 수를 증가하지 않는다.
-<img src = "13" height = 200>
+<img src = "https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/13.png" height = 250>
 
 ## Challenge
 ### Challenge: Fetch top repos and spice up the feed
 * 여기서는 가장 최상단에 있는 Swift repositories를 app에서 보여줄 것이다.
-<img src="14" height=200>
+<img src="https://github.com/kanghuiseon/RxSwiftStudy/blob/master/Ch8_Transforming_Operators_in_Practice/Resource/14.png" height=200>
 
 * 시작하기 위해서, fetchEvents(repo:) 의 let response = Observable.from([repo])를 아래의 코드로 바꾼다.
 ```swift
